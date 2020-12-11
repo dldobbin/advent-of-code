@@ -844,5 +844,6 @@ def toBin(string):
 	return string.replace('F', '0').replace('B', '1').replace('L', '0').replace('R', '1')
 
 if __name__ == '__main__':
-	print("Part 1: ", max([int(a,2) for a in map(toBin, input)]))
-	print("Part 2: ", sorted([int(a,2) for a in map(toBin, input)]))
+	seatIDs = [int(a,2) for a in map(toBin, input)]
+	print("Part 1: ", max(seatIDs))
+	print("Part 2: ", next(seatID for seatID in range(min(seatIDs), max(seatIDs)+1) if seatID not in seatIDs))
