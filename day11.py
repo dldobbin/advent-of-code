@@ -1,3 +1,4 @@
+from time import time
 input = [
 'LL.LL.LLLLLL.LLLLLLLLLLLLLLLLLL.LLLLL..LLLLLLL.LLLLLLLLLLLL.LLLL.LLLLL.LL.LLLLLL.LLLL.LLLLL',
 'LLLLL.LLLLLL.LLLLLLLLLLLLL.LLLL.LL.LLLLLLLLLLLLLLLLLLLLLLLL.LLLL.LLLLLLLLLLLLLLLLLLLLLLLLLL',
@@ -152,6 +153,7 @@ def roundLoS(seats):
 	return ["".join(row) for row in newSeats]
 
 if __name__ == '__main__':
+	start = time()
 	current = input
 	new = round(current)
 
@@ -171,3 +173,4 @@ if __name__ == '__main__':
 		new = roundLoS(new)
 
 	print("Part 2: ", sum([row.count('#') for row in current]))
+	print(time() - start)

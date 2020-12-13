@@ -1,3 +1,4 @@
+from time import time
 from functools import reduce
 input = [
 'F77',
@@ -834,9 +835,10 @@ def proc2(arg, ins):
 	return (pos, way)
 
 if __name__ == '__main__':
-
+	start = time()
 	(_, pos) = reduce(proc1, input, (0, [0,0]))
 	print("Part 1: ", abs(pos[0]) + abs(pos[1]))
 
 	(pos, _) = reduce(proc2, input, ([0,0], [1,10]))
 	print("Part 2: ", abs(pos[0]) + abs(pos[1]))
+	print(time() - start)

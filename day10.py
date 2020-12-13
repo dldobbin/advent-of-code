@@ -1,3 +1,4 @@
+from time import time
 input = [
 144,
 10,
@@ -119,9 +120,11 @@ def count(fromAdapter, toAdapter, adapters):
 	return res
 
 if __name__ == '__main__':
+	start = time()
 	ads = sorted(input)
 	fromAds = [0] + ads
 	toAds = ads + [ads[-1]+3]
 	diffs = [t-f for t,f in zip(toAds,fromAds)]
 	print("Part 1: ", diffs.count(1) * diffs.count(3))
 	print("Part 2: ", count(0, ads[-1]+3, toAds))
+	print(time()-start)

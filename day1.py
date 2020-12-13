@@ -1,6 +1,7 @@
 import random
+from time import time
 
-a = [1825,
+input = [1825,
 1944,
 1802,
 1676,
@@ -216,8 +217,21 @@ def bar(list, k):
 			return [num] + kum
 
 if __name__ == '__main__':
+	start = time()
+	[num, mum] = foo(input, 2020)
+	print("Part 1: ", num*mum)
+	[num, mum, lum] = bar(input, 2020)
+	print("Part 2: ", num*mum*lum)
+	print(time()-start)
+	start = time()
 	while True:
-		[num, mum, lum] = random.sample(a, 3)
+		[num, mum] = random.sample(input, 2)
+		if (num + mum == 2020):
+			print(num, mum, num*mum)
+			break
+	while True:
+		[num, mum, lum] = random.sample(input, 3)
 		if (num + mum + lum == 2020):
 			print(num, mum, lum, num*mum*lum)
 			break
+	print(time()-start)

@@ -1,4 +1,5 @@
 import re
+from time import time
 input = [
 'shiny aqua bags contain 1 dark white bag.',
 'muted blue bags contain 1 vibrant lavender bag, 4 dotted silver bags, 2 dim indigo bags.',
@@ -612,12 +613,14 @@ def bagsInBag(bag):
 	return len(bags) + sum(map(bagsInBag, bags))
 
 if __name__ == '__main__':
+	start = time()
 	toProc = ['shiny gold']
 	baggos = set()
 	while toProc:
-		bags = bagsThatContain(toProc.pop())
+		bags = [b for b in bagsThatContain(toProc.pop()) if b not in baggos]
 		baggos.update(bags)
 		toProc = toProc + bags
 	print("Part 1: ", len(baggos))
 
-	print(bagsInBag('shiny gold'))
+	print("Part 2: ", bagsInBag('shiny gold'))
+	print(time()-start)
