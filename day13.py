@@ -33,9 +33,8 @@ def proc(a, b):
 if __name__ == '__main__':
 	start = time()
 	depart = int(input[0])
-	bussy = [(depart%int(bus), int(bus)) for bus in input[1].split(',') if bus != 'x']
-	port = min(bussy, key = lambda x: x[1] - x[0])
-	print("Part 1: ", (port[1]-port[0])*port[1])
+	(wait_time, busID) = min([(int(bus) - depart%int(bus), int(bus)) for bus in input[1].split(',') if bus != 'x'])
+	print("Part 1: ", wait_time*busID)
 
 	bang = [(-num%int(bus), int(bus)) for num,bus in enumerate(input[1].split(',')) if bus != 'x']
 	(ans, mod) = reduce(proc, bang)
